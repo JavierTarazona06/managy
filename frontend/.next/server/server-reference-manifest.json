@@ -1,0 +1,20 @@
+{
+  "node": {
+    "98f307e38b854f7e2cca6fce9a9680726048d2a1": {
+      "workers": {
+        "app/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5Cjavit%5C%5CDocuments%5C%5Cusask%5C%5Cmanagy%5C%5Cfrontend%5C%5Csrc%5C%5Ccomponents%5C%5Cactions.js%22%2C%5B%22navigate%22%5D%5D%5D&__client_imported__=true!",
+        "app/login/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5Cjavit%5C%5CDocuments%5C%5Cusask%5C%5Cmanagy%5C%5Cfrontend%5C%5Csrc%5C%5Ccomponents%5C%5Cactions.js%22%2C%5B%22navigate%22%5D%5D%5D&__client_imported__=true!",
+        "app/register/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5Cjavit%5C%5CDocuments%5C%5Cusask%5C%5Cmanagy%5C%5Cfrontend%5C%5Csrc%5C%5Ccomponents%5C%5Cactions.js%22%2C%5B%22navigate%22%5D%5D%5D&__client_imported__=true!",
+        "app/logout/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22C%3A%5C%5CUsers%5C%5Cjavit%5C%5CDocuments%5C%5Cusask%5C%5Cmanagy%5C%5Cfrontend%5C%5Csrc%5C%5Ccomponents%5C%5Cactions.js%22%2C%5B%22navigate%22%5D%5D%5D&__client_imported__=true!"
+      },
+      "layer": {
+        "app/page": "action-browser",
+        "app/login/page": "action-browser",
+        "app/register/page": "action-browser",
+        "app/logout/page": "action-browser"
+      }
+    }
+  },
+  "edge": {},
+  "encryptionKey": "05O6zN42wgS4tTXHIrEbCtRFKux3lBRV3cO4JOT7mhc="
+}

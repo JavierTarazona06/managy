@@ -1,17 +1,14 @@
-import { Navigate } from "react-router-dom";
+'use client';
+
+/*import { Navigate } from "react-router-dom";*/
+/*import { useRouter } from 'next/router';*/
+/*import { redirect } from "next/navigation";*/
 import { jwtDecode } from "jwt-decode";
-import api from "../api";
-import { REFRESH_TOKEN, ACCESS_TOKEN } from "../constants";
-import { useState, useEffect } from "react";
+import api from "../api.js";
+import { REFRESH_TOKEN, ACCESS_TOKEN } from "../constants.js";
+/*import { useState, useEffect } from "react";*/
 
-
-// eslint-disable-next-line react/prop-types
-function ProtectedRoute({ children }) {
-    const [isAuthorized, setIsAuthorized] = useState(null);
-
-    useEffect(() => {
-        auth().catch(() => setIsAuthorized(false))
-    }, [])
+export async function isAuthorized() {
 
     const refreshToken = async () => {
         const refreshToken = localStorage.getItem(REFRESH_TOKEN);
@@ -20,39 +17,35 @@ function ProtectedRoute({ children }) {
                 refresh: refreshToken,
             });
             if (res.status === 200) {
-                localStorage.setItem(ACCESS_TOKEN, res.data.access)
-                setIsAuthorized(true)
+                localStorage.setItem(ACCESS_TOKEN, res.data.access);
+                return true;
             } else {
-                setIsAuthorized(false)
+                return false;
             }
         } catch (error) {
             console.log(error);
-            setIsAuthorized(false);
+            return false;
         }
     };
 
+    // Main authentication function
     const auth = async () => {
         const token = localStorage.getItem(ACCESS_TOKEN);
         if (!token) {
-            setIsAuthorized(false);
-            return;
+            return false;
         }
         const decoded = jwtDecode(token);
         const tokenExpiration = decoded.exp;
         const now = Date.now() / 1000;
 
+        // Check if the token is expired
         if (tokenExpiration < now) {
-            await refreshToken();
+            return await refreshToken(); // Refresh token if expired
         } else {
-            setIsAuthorized(true);
+            return true; // Token is valid
         }
     };
 
-    if (isAuthorized === null) {
-        return <div>Loading...</div>;
-    }
-
-    return isAuthorized ? children : <Navigate to="/login" />;
+    // Call auth to check if the user is authorized
+    return await auth();
 }
-
-export default ProtectedRoute;

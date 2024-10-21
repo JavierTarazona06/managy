@@ -1,16 +1,19 @@
+"use client"
+
 import { useState } from "react";
-import api from "../api";
-import { useNavigate } from "react-router-dom";
-import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
+import api from "../api.js";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants.js";
 import "../styles/Form.css"
 import LoadingIndicator from "./LoadingIndicator.jsx";
+
+/*import { redirect } from "next/navigation";*/
+import { navigate } from "./actions.js";
 
 // eslint-disable-next-line react/prop-types
 function Form({ route, method }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
-    const navigate = useNavigate();
 
     const name = method === "login" ? "Login" : "Register";
 
@@ -24,10 +27,12 @@ function Form({ route, method }) {
             if (method === "login") {
                 localStorage.setItem(ACCESS_TOKEN, res.data.access);
                 localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
-                navigate("/")
+                navigate('/');
             } else {
                 /*A registered user*/
-                navigate("/login")
+                /*redirect('/login');*/
+                navigate('/login');
+                /*navigate("/login")*/
             }
         } catch (error) {
             alert(error)
