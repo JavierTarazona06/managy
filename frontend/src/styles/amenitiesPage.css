@@ -1,0 +1,57 @@
+/* Container for the amenities page */
+.amenities-container {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Logo Styling */
+.amenities-logo {
+    width: 100px;
+    margin: 0 auto 20px auto;
+    display: block;
+}
+
+/* Page Title Styling */
+.amenities-title {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* Sorting Controls Styling */
+.sorting-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Sorting Dropdown Styling */
+.sorting-controls select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* Amenities List Styling */
+.amenities-list {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Individual Amenity Item Styling */
+.amenity-item {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-left: 5px solid #007bff;
+    border-radius: 5px;
+}
